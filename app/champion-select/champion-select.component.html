@@ -1,0 +1,63 @@
+<p id="app-title"> TCC </p>
+
+<div id="champion-pool"> 
+  <div class="champion-slot" *ngFor="let champion of champions">
+    <div class="champion-button"  (click)="onSelect(champion)">
+      <img [class.selected]="champion === selectedChampion" class="champion-image" src="{{champion.getImageLink()}}" alt="champion.name">
+      <div [class.selected]="champion === selectedChampion" class="champion-name"> {{champion?.name}} </div>
+    </div>
+  </div>
+</div>
+
+<div id="team-one">
+  
+   <div *ngFor="let player of teamOne" class="summoner" (click)="onSetSummonerChampion(player)">
+    <p class="summoner-position"> {{ player?.position }}: {{player?.name}} </p>
+    <div class="summoner-champion-image-bar"> 
+      <div class="summoner-champion-image-slot">
+        <img class="summoner-champion-image" *ngIf="player.champion" src="{{player.champion.getImageLink()}}">
+      </div>
+
+      <div class="summoner-champion-name" *ngIf="player.champion"> 
+        {{player?.champion?.name}}
+      </div>
+    </div>
+
+    <div class="summoner-champion-info"> 
+      <p> 
+        player?.champion?.info will go here.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<div id="team-two">
+  
+   <div *ngFor="let player of teamOne" class="summoner" (click)="onSetSummonerChampion(player)">
+    <p class="summoner-position"> {{ player?.position }}: {{player?.name}} </p>
+    <div class="summoner-champion-image-bar"> 
+      <div class="summoner-champion-image-slot">
+        <img class="summoner-champion-image" *ngIf="player.champion" src="{{player.champion.getImageLink()}}">
+      </div>
+
+      <div class="summoner-champion-name" *ngIf="player.champion"> 
+        {{player?.champion?.name}}
+      </div>
+    </div>
+
+    <div class="summoner-champion-info"> 
+      <p> 
+        player?.champion?.info will go here.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<div id="summary">
+  In Depth Analysis- three parts. One for team One. One for Team Two. One for both.
+</div>

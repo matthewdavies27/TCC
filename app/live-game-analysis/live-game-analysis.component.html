@@ -1,0 +1,102 @@
+<div id="app-title"> TCC 
+  <input type="text" id="summoner-name-input" [(ngModel)]="summonerName" />
+  <div id="get-game-button" (click)="getGameWithName(summonerName)">
+    CLICK ME TO GET THE GAME! 
+  </div>
+  {{summonerName}}
+</div>
+
+<div id="team-one">
+  
+   <div *ngFor="let summoner of game?.teamOne?.summoners" class="summoner">
+    <div class="summoner-info">
+      <p class="summoner-position"> TODO: summoner?.position: {{summoner?.name}} </p>
+      <img class="summoner-image" *ngIf="summoner?.image" src="{{summoner.getImageLink()}}">
+    </div>
+    <div class="summoner-champion-image-bar"> 
+      <div class="summoner-champion-image-slot">
+        <img class="summoner-champion-image" *ngIf="summoner?.champion?.image" src="{{summoner.champion.getImageLink()}}">
+      </div>
+
+      <div class="summoner-champion-name" *ngIf="summoner.champion"> 
+        {{summoner?.champion?.name}}
+      </div>
+    </div>
+
+    <div class="summoner-champion-info"> 
+      <p> 
+        summoner?.champion?.info will go here.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<div id="team-two">
+  
+   <div *ngFor="let summoner of game?.teamTwo?.summoners" class="summoner">
+    <div class="summoner-info">
+      <p class="summoner-position"> TODO: summoner?.position: {{summoner?.name}} </p>
+      <img class="summoner-image" *ngIf="summoner?.image" src="{{summoner.getImageLink()}}">
+    </div>
+    <div class="summoner-champion-image-bar"> 
+      <div class="summoner-champion-image-slot">
+        <img class="summoner-champion-image" *ngIf="summoner?.champion?.image" src="{{summoner.champion.getImageLink()}}">
+      </div>
+
+      <div class="summoner-champion-name" *ngIf="summoner.champion"> 
+        {{summoner?.champion?.name}}
+      </div>
+    </div>
+
+    <div class="summoner-champion-info"> 
+      <p> 
+        summoner?.champion?.info will go here.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<div id="team-one-bans"> 
+  <div class="bans-title">
+    Team One Bans
+  </div>
+
+  <div *ngFor="let ban of game?.teamOneBans" class="ban">
+    <div class="ban-image-bar"> 
+      <div class="ban-champion-image-slot">
+        <img class="ban-image" *ngIf="ban?.image" src="{{ban.getImageLink()}}">
+      </div>
+      <div class="ban-name"> 
+        {{ban?.name}}
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="team-two-bans"> 
+  <div class="bans-title">
+    Team Two Bans
+  </div>
+
+  <div *ngFor="let ban of game?.teamTwoBans" class="ban">
+    <div class="ban-image-bar"> 
+      <div class="ban-champion-image-slot">
+        <img class="ban-image" *ngIf="ban?.image" src="{{ban.getImageLink()}}">
+      </div>
+      <div class="ban-name"> 
+        {{ban?.name}}
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="summonerStats">
+</div>
+
+<div id="summary">
+  In Depth Analysis- three parts. One for team One. One for Team Two. One for both.
+</div>
